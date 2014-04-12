@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html ng-app="8lampsPuzzle">
+<head>
+	<meta charset="utf-8">
+	<title>8 lamps - logic puzzle</title>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
+	<link rel="stylesheet" href="lib/font-awesome-4.0.3/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="lib/ionic/css/ionic.css">
+	<link rel="stylesheet" href="css/styles.css">
+
+	<script src="lib/ionic/js/ionic.bundle.js"></script>
+	<script src="lib/underscore/underscore.js"></script>
+	<script src="js/app.js"></script>
+	<script src="cordova.js"></script>
+</head>
+
+
+<body ng-controller="LampsController">
+	<div class="container">
+		<div class="row responsive-sm">
+
+			<ion-side-menus>
+
+				<!-- Center content -->
+				<ion-side-menu-content>
+					<ion-header-bar class="bar-light">
+						<button class="button button-icon" ng-click="toggleSideMenu()">
+							<i class="icon ion-navicon"></i>
+						</button>
+						<h1 class="title">8 lamps <small>puzzle</small></h1>
+					</ion-header-bar>
+					<ion-content>
+						<div class="col bg-grey">
+							<section>
+								<div class="box-inner box-inner-mobile">
+									<div class="lamps-list">
+										<button type="button" ng-repeat="lamp in lamps"
+										ng-click="clickLamp(lamp)"
+										class="lamp {{lamp.state}} nr-{{lamp.nr}}"></button>
+									</div>
+								</div>
+							</section>
+							<section>
+								<div class="row">
+									<div class="col">
+										<ng-include src="'partials/panel-result.html'"></ng-include>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col">
+										<button class="button  button-full button-positive" ng-click="resetGame()">New Game</button>
+									</div>
+								</div>
+							</section>
+						</div>
+						<div class="col col50">
+							<div class="box-inner" ng-if="bestResult">
+								<div class="progress">
+									<span class="progress-bar progress-bar-success" ng-style="greenBar"></span>
+									<span class="progress-bar progress-bar-warning" ng-style="orangeBar"></span>
+								</div>
+
+								<h3>Your best result is</h3>
+								<h3><span class="label label-default">{{ bestResult }}</span></h3>
+							</div>
+						</div>
+					</ion-content>
+				</ion-side-menu-content>
+
+				<!-- Left menu -->
+				<ion-side-menu side="left" style="z-index: 0;">
+					<ion-header-bar class="bar-dark">
+						<h1 class="title">Menu</h1>
+					</ion-header-bar>
+					<ion-content scroll="false">
+						<ion-list>
+							<!-- TODO: add subpages -->
+							<ion-item>How to Play</ion-item>
+							<ion-item>Credits</ion-item>
+						</ion-list>
+					</ion-content>
+				</ion-side-menu>
+			</ion-side-menus>
+		</div>
+	</div>
+
+<script id="modal.html" type="text/ng-template">
+	<div class="modal">
+		<ion-header-bar title="My Modal Title"></ion-header-bar>
+		<ion-content>
+			Hello!
+		</ion-content>
+	</div>
+</script>
+
+</body>
+</html>
