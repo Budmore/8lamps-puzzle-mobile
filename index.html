@@ -26,9 +26,7 @@
 				<!-- Center content -->
 				<ion-side-menu-content>
 					<ion-header-bar class="bar-light">
-						<button class="button button-icon" ng-click="toggleSideMenu()">
-							<i class="icon ion-navicon"></i>
-						</button>
+						<button class="button button-icon icon ion-navicon" ng-click="toggleSideMenu()"></button>
 						<h1 class="title">8 lamps <small>puzzle</small></h1>
 					</ion-header-bar>
 					<ion-content>
@@ -50,21 +48,23 @@
 								</div>
 								<div class="row">
 									<div class="col">
-										<button class="button  button-full button-positive" ng-click="resetGame()">New Game</button>
+										<button class="button button-full button-positive" ng-click="resetGame()"><i class="icon ion-ios7-refresh-empty"></i> Reset game</button>
 									</div>
 								</div>
 							</section>
 						</div>
-						<div class="col col50">
-							<div class="box-inner" ng-if="bestResult">
-								<div class="progress">
-									<span class="progress-bar progress-bar-success" ng-style="greenBar"></span>
-									<span class="progress-bar progress-bar-warning" ng-style="orangeBar"></span>
-								</div>
+						<div class="col bg-grey">
+							<section ng-if="bestResult">
+								<div class="box-inner">
+									<div class="progress">
+										<span class="progress-bar progress-bar-success" ng-style="greenBar"></span>
+										<span class="progress-bar progress-bar-warning" ng-style="orangeBar"></span>
+									</div>
 
-								<h3>Your best result is</h3>
-								<h3><span class="label label-default">{{ bestResult }}</span></h3>
-							</div>
+									<h3>Your best result is</h3>
+									<h3><span class="label label-default">{{ bestResult }}</span></h3>
+								</div>
+							</section>
 						</div>
 					</ion-content>
 				</ion-side-menu-content>
